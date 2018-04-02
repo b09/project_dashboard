@@ -5,6 +5,11 @@
     <p> <%= member.first_name%> <%= member.last_name %></p>
     <p>£<%= (member.salary / 12.0).floor(2) %> per month</p>
     <p><a href=""><%= member.github %> </a></p>
+    <p>
+      <form action="/members/<%= member.id %>" method="GET">
+        <input class="btn" type="button" value="view" />
+      </form>
+    </p>
     </li>
     <hr />
   <% end %>

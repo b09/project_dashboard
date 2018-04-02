@@ -1,0 +1,5 @@
+
+<h1>Member Info:</h1>
+<p><%="#{@member.first_name} #{@member.last_name}" %> </p>
+<p>£<%= (@member.salary / 12.0).floor(2) %> per month</p>
+<p><a href=""><%= @member.github %> </a></p>

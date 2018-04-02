@@ -1,0 +1,11 @@
+<h1> These are all the projects: </h1>
+  <ul>
+  <% for project in @projects %>
+    <li>
+    <p> <%= project.name%></p>
+    <p>£<%= project.budget %></p>
+    <p><%= project.start_date %></p>
+    </li>
+    <hr />
+  <% end %>
+  </ul>
