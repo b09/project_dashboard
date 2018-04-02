@@ -2,7 +2,10 @@
   <ul>
   <% for member in @members %>
     <li>
-    <p> <%= member.name, member.salary, member.github %> </p>
+    <p> <%= member.name%></p>
+    <p>£<%= (member.salary / 12.0).floor(3) %> per month</p>
+    <p><%= member.github %> </p>
     </li>
+    <hr />
   <% end %>
   </ul>
