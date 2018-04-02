@@ -1,6 +1,8 @@
 require_relative('../models/member')
+require_relative('../models/project')
 
 Member.delete_all
+Project.delete_all
 
 member1 = Member.new({'first_name' => 'Atom', 'last_name' => 'Editor', 'salary' => 59000, 'github' => 'something@github.com'})
 member2 = Member.new({'first_name' => 'Tom', 'last_name' => 'Editor', 'salary' => 79000, 'github' => 'gag@github.com'})
@@ -13,3 +15,6 @@ member2.save
 member3.save
 member4.save
 member5.save
+
+project1 = Project.new({'name' => 'Website Desing', 'budget' => 7000, 'start_date' => "2018-01-04"})
+project1.save

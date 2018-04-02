@@ -15,5 +15,6 @@ CREATE TABLE projects
 (
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  budget INT4
+  budget INT4,
+  start_date DATE
 );
