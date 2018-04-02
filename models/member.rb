@@ -3,21 +3,22 @@ require_relative('../db/sql_runner')
 class Member
 
 attr_reader :id
-attr_accessor :name, :salary, :github
+attr_accessor :first_name, :last_name, :salary, :github
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @name = options['name']
+    @first_name = options['first_name']
+    @last_name = options['last_name']
     @salary = options['salary'].to_i
     @github = options['github']
   end
 
   def save
     sql = "
-    INSERT INTO members (name, salary, github)
-    VALUES ($1, $2, $3) RETURNING id
+    INSERT INTO members (first_name, last_name, salary, github)
+    VALUES ($1, $2, $3, $4) RETURNING id
     "
-    values = [@name, @salary, @github]
+    values = [@first_name, @last_name, @salary, @github]
     result = SqlRunner.run(sql, values)
     @id = result.first['id'].to_i
   end
