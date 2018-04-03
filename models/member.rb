@@ -58,5 +58,24 @@ attr_accessor :first_name, :last_name, :salary, :github
     SqlRunner.run(sql, values)
   end
 
+  def projects
+    sql = "SELECT * FROM projects INNER JOIN projectteams ON
+    projectteams.project_id = projects.id WHERE projectteams.member_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
+
+  def self.count
+    sql = "
+    SELECT * FROM members
+    "
+    result = SqlRunner.run(sql)
+    return result.count
+  end
+
+  def full_name
+    return @first_name + " " + @last_name
+  end
 
 end

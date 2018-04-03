@@ -1,13 +1,18 @@
 require('sinatra')
 require('sinatra/contrib/all')
 require_relative('../models/project')
+require_relative('../models/project_team')
+require_relative('../models/member')
+require('pry')
 
 get '/projects' do
   @projects = Project.all()
+  @members = Member.all()
   erb( :"projects/index" )
 end
 
 get '/projects/new' do
+  @members = Member.all()
   erb(:"projects/new")
 end
 
@@ -29,6 +34,5 @@ end
 
 post '/projects/:id' do
   project = Project.new(params)
-  project.update
-  redirect to ("/projects/#{params['id']}")
+  members = Member.all()
 end

@@ -1,4 +1,4 @@
-DROP TABLE teamprojects;
+DROP TABLE projectteams;
 DROP TABLE members;
 DROP TABLE projects;
 
@@ -20,9 +20,10 @@ CREATE TABLE projects
   start_date DATE
 );
 
-CREATE TABLE teamprojects
+CREATE TABLE projectteams
 (
   id SERIAL8 PRIMARY KEY,
   project_id INT8 REFERENCES projects(id),
-  member_id INT8 REFERENCES members(id)
+  member_id INT8 REFERENCES members(id),
+  UNIQUE (project_id, member_id)
 );

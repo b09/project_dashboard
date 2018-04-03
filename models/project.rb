@@ -56,4 +56,14 @@ attr_accessor :name, :budget, :start_date
     SqlRunner.run(sql, values)
   end
 
+  def members
+    sql = "SELECT * FROM members INNER JOIN projectteams ON
+    projectteams.member_id = members.id WHERE projectteams.project_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |member| Member.new(member) }
+  end
+
+
+
 end

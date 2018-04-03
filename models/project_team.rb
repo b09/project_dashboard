@@ -5,7 +5,7 @@ class ProjectTeam
 attr_reader :id, :member_id, :project_id
 
   def initialize(options)
-    @id = option['id'].to_i if options['id']
+    @id = options['id'].to_i if options['id']
     @member_id = options['member_id'].to_i
     @project_id = options['project_id'].to_i
   end
@@ -70,5 +70,20 @@ attr_reader :id, :member_id, :project_id
     results = SqlRunner.run( sql, values )
     return Project.new( results.first )
   end
+
+  # def save_array_of_members_to_project(member_array)
+  #   for member_id in member_array
+  #     member_id.save
+  # end
+  #
+  # def self.add_member_to_project(member_id, project_id)
+  #   sql = "
+  #   INSERT INTO projectteams
+  #   "
+  # end
+  #
+  # def self.add_members_to_project(array_of_member_ids, project_id)
+  #
+  # end
 
 end

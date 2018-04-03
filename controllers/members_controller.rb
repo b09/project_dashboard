@@ -1,6 +1,7 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
 require_relative( '../models/member' )
+require_relative('../models/project_team')
 
 get '/members' do
   @members = Member.all()
