@@ -1,0 +1,10 @@
+<h1>Project Info:</h1>
+<p><%= @project.name %> </p>
+<p>£<%= @project.budget %></p>
+<p>Date: <%= @project.start_date %></p>
+<form action="/projects/<%= @project.id %>/delete" method="POST">
+  <button type="submit" value="delete">Delete</button>
+</form>
+<form action="/projects/<%= @project.id %>/edit" method="GET">
+  <button type="submit" value="Edit">Edit</button>
+</form>

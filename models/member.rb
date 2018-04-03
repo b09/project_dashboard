@@ -49,5 +49,14 @@ attr_accessor :first_name, :last_name, :salary, :github
     return Member.new(result.first)
   end
 
+  def update()
+    sql = "
+    UPDATE members SET (first_name, last_name, salary, github) =
+    ($1, $2, $3, $4) WHERE id = $5
+    "
+    values = [@first_name, @last_name, @salary, @github, @id]
+    SqlRunner.run(sql, values)
+  end
+
 
 end

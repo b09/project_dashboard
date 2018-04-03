@@ -1,6 +1,11 @@
 <h1>This is the index erb file</h1>
 <p>
-  <form action="/members/<%= member.id %>" method="GET">
-    <input class="btn" type="button" value="view" />
+  <form action="/members" method="GET">
+    <button type="submit" value="members">View Members</button>
+  </form>
+</p>
+<p>
+  <form action="/projects" method="GET">
+    <button type="submit" value="projects">View Projects</button>
   </form>
 </p>

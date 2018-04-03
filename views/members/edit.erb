@@ -1,0 +1,30 @@
+<h1> Edit Member Data</h1>
+<form action="/members/<%= @member.id %>" method="post">
+  <div class="form-wrapper">
+
+    <div class="form-el">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" id="first_name" value="<%= @member.first_name %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" id="last_name" value="<%= @member.last_name %>"/>
+    </div>
+
+    <div class="form=el">
+      <label for="salary">Salary Amount:</label>
+      <input type="number" name="salary" id="salary" value="<%= @member.salary %>"/>
+    </div>
+
+    <div class="form-el">
+      <label for="github">Github Profile:</label>
+      <input type="text" name="github" id="github" value="<%= @member.github %>"/>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Edit Member"/>
+    </div>
+
+  </div>
+</form>

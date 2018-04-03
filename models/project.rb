@@ -40,4 +40,20 @@ attr_accessor :name, :budget, :start_date
     SqlRunner.run(sql)
   end
 
+  def self.find(id)
+    sql = " SELECT * FROM projects WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return Project.new(result.first)
+  end
+
+  def update()
+    sql = "
+    UPDATE projects SET (name, budget, start_date) =
+    ($1, $2, $3) WHERE id = $4
+    "
+    values = [@name, @budget, @start_date, @id]
+    SqlRunner.run(sql, values)
+  end
+
 end

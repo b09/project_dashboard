@@ -5,6 +5,11 @@
     <p> <%= project.name%></p>
     <p>£<%= project.budget %></p>
     <p><%= project.start_date %></p>
+    <p>
+      <form action="/projects/<%= project.id %>" method="GET">
+        <button type="submit" value="view">View</button>
+      </form>
+    </p>
     </li>
     <hr />
   <% end %>
