@@ -1,3 +1,4 @@
+DROP TABLE teamprojects;
 DROP TABLE members;
 DROP TABLE projects;
 
@@ -17,4 +18,11 @@ CREATE TABLE projects
   name VARCHAR(255),
   budget INT4,
   start_date DATE
+);
+
+CREATE TABLE teamprojects
+(
+  id SERIAL8 PRIMARY KEY,
+  project_id INT8 REFERENCES projects(id),
+  member_id INT8 REFERENCES members(id)
 );
