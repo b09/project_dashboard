@@ -32,6 +32,11 @@ post '/projects' do
   redirect to ("/projects")
 end
 
+post '/projects/:id/delete' do
+  Project.delete(params[:id])
+  redirect to ("/projects")
+end
+
 post '/projects/:id' do
   project = Project.new(params)
   members = Member.all()

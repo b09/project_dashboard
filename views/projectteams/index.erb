@@ -1,6 +1,8 @@
 Nothing to see folks
 <p><% for project in @projects %>
-<p><%= project.id %>
-<%= project.members %></p>
+<p>Project Name: <%= project.name %>
+    &emsp;&emsp;Members:<% for member in project.members %>
+    £ <%= member.hourly%>,&ensp;
+  <% end %></p>
 <% end %>
 </p>

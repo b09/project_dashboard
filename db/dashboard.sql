@@ -17,6 +17,7 @@ CREATE TABLE projects
   id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   budget INT4,
+  type VARCHAR(255),
   start_date DATE
 );
 

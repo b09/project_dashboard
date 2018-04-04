@@ -5,9 +5,11 @@
   <ul>
   <% for project in @projects %>
     <li>
-    <p> <%= project.name%></p>
-    <p>£<%= project.budget %></p>
-    <p><%= project.start_date %></p>
+    <p> Project Name: <%= project.name%></p>
+    <p>Budget: £<%= project.budget %></p>
+    <p>Startdate: <%= project.start_date %></p>
+    <p>Number of members: <%= project.members.length %></p>
+    <p>Type of project: <%= project.type %></p>
     <p>
       <form action="/projects/<%= project.id %>" method="GET">
         <button type="submit" value="view">View</button>

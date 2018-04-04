@@ -78,4 +78,8 @@ attr_accessor :first_name, :last_name, :salary, :github
     return @first_name + " " + @last_name
   end
 
+  def hourly
+    return (@salary.to_i / 2000) 
+  end
+
 end
