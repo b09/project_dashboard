@@ -6,6 +6,12 @@
 <p>£<%= @project.budget %></p>
 <p>Date: <%= @project.start_date %></p>
 <p>Project Description: <%= @project.description %></p>
+<p>Members on Project:
+
+<% @project.members.each do |member| %>
+  <%= member.full_name %>&ensp;
+  <% end %></p>
+
 <form action="/projects/<%= @project.id %>/delete" method="POST">
   <button type="submit" value="delete">Delete</button>
 </form>

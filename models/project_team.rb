@@ -71,16 +71,16 @@ attr_reader :id, :member_id, :project_id
     return Project.new( results.first )
   end
 
-  # def self.check_db_match(member_id, project_id)
-  #   sql = "SELECT * FROM projectteams WHERE project_id = $1 AND member_id = $2"
-  #   values = [project_id, member_id]
-  #   results = SqlRunner.run(sql, value)
-  #   if results.length == 0
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+  def check_db_match()
+    sql = "SELECT * FROM projectteams WHERE project_id = $1 AND member_id = $2"
+    values = [@project_id, @member_id]
+    results = SqlRunner.run(sql, values)
+    if results.first != nil
+      return true
+    else
+      return false
+    end
+  end
 
   # def save_array_of_members_to_project(member_array)
   #   for member_id in member_array

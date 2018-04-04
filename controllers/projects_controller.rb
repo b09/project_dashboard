@@ -40,5 +40,6 @@ end
 post '/projects/:id' do
   project = Project.new(params)
   members = Member.all()
+  project.update
   redirect to ("/projects")
 end

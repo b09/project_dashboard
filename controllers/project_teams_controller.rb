@@ -17,13 +17,19 @@ get '/projectteams/new' do
   @projects = Project.all
   erb(:"projectteams/new")
 end
+get '/projectteams/new/exists' do
+  @members = Member.all
+  @projects = Project.all
+  @error = "These two connections already exist"
+  erb(:"projectteams/new")
+end
 
 post '/projectteams' do
   new_proteam = ProjectTeam.new(params)
-  # if new_proteam.check_db_match(params) == true
-  #   erb (:"projectteams/exists")
-  # else
+  if new_proteam.check_db_match() == true
+    redirect ("/projectteams/new/exists")
+  else
     new_proteam.save
     redirect to ("/projectteams")
-  # end
+  end
 end

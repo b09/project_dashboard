@@ -63,7 +63,7 @@ attr_accessor :first_name, :last_name, :salary, :github
     projectteams.project_id = projects.id WHERE projectteams.member_id = $1;"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map { |member| Member.new(member) }
+    return results.map { |project| Project.new(project) }
   end
 
   def self.count
@@ -79,7 +79,7 @@ attr_accessor :first_name, :last_name, :salary, :github
   end
 
   def hourly
-    return (@salary.to_i / 2000) 
+    return (@salary.to_i / 2000)
   end
 
 end

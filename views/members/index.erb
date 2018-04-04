@@ -5,9 +5,12 @@
   <ul>
   <% for member in @members %>
     <li>
-    <p> <%= member.first_name%> <%= member.last_name %></p>
-    <p>£<%= (member.salary / 12.0).floor(2) %> per month</p>
-    <p><a href=""><%= member.github %> </a></p>
+    <p> Name: <%= member.full_name %></p>
+    <p>Salary: £<%= (member.salary / 12.0).floor(2) %> / per month</p>
+    <p>Github: <a href=""><%= member.github %> </a></p>
+    <p>Projects: <% member.projects.each do |project| %>
+      <%= project.name%>
+      <% end %>
     <p>
       <form action="/members/<%= member.id %>" method="GET">
         <button type="submit" value="view">View</button>
