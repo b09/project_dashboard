@@ -17,27 +17,27 @@
       <input type="date" name="start_date" id="start_date">
     </div>
 
-    </form>
-
-
-    <select name="type">
-      <option value="type" name="type" id="type">Front End</option>
-      <option value="type" name="type" id="type">Back End</option>
-      <option value="type" name="type" id="type">Other</option>
-    </select>
-
-
     <div class="form-el">
-    <select>
-      <% for member in @members %>
-      <option value="member" name="member_id"><%= member.first_name %></option>
-      <% end %>
+      <label for="description">Project Description:</label>
+    <textarea rows="4" cols="50" type="text" name="description">
+    </textarea>
+  </div>
+
+    <label>
+    <select name="type">
+      <option value="Front End" name="type" id="type">Front End</option>
+      <option value="Back End" name="type" id="type">Back End</option>
+      <option value="Other" name="type" id="type">Other</option>
     </select>
-    </div>
+  </label>
+
 
     <div class="form-el">
       <input type="submit" value="Create Project"/>
     </div>
 
   </div>
+</form>
+<form action="/projects" method="GET">
+  <button type="submit" value="view">Cancel</button>
 </form>

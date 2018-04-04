@@ -18,7 +18,8 @@ CREATE TABLE projects
   name VARCHAR(255),
   budget INT4,
   type VARCHAR(255),
-  start_date DATE
+  start_date DATE,
+  description TEXT
 );
 
 CREATE TABLE projectteams

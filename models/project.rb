@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 class Project
 
 attr_reader :id
-attr_accessor :name, :budget, :start_date, :type
+attr_accessor :name, :budget, :start_date, :type, :description
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -11,13 +11,14 @@ attr_accessor :name, :budget, :start_date, :type
     @budget = options['budget'].to_i
     @type = options['type']
     @start_date = options['start_date']
+    @description = options['description']
   end
 
   def save
     sql = "
-    INSERT INTO projects (name, budget, start_date, type)
-    VALUES ($1, $2, $3, $4) RETURNING id"
-    values = [@name, @budget, @start_date, @type]
+    INSERT INTO projects (name, budget, start_date, type, description)
+    VALUES ($1, $2, $3, $4, $5) RETURNING id"
+    values = [@name, @budget, @start_date, @type, @description]
     pg_hash = SqlRunner.run(sql, values)
     @id = pg_hash.first['id'].to_i
   end
@@ -50,10 +51,10 @@ attr_accessor :name, :budget, :start_date, :type
 
   def update()
     sql = "
-    UPDATE projects SET (name, budget, start_date, type) =
-    ($1, $2, $3, $4) WHERE id = $5
+    UPDATE projects SET (name, budget, start_date, type, description) =
+    ($1, $2, $3, $4, $5) WHERE id = $6
     "
-    values = [@name, @budget, @start_date, @type, @id]
+    values = [@name, @budget, @start_date, @type, @description, @id]
     SqlRunner.run(sql, values)
   end
 

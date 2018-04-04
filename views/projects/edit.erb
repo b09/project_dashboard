@@ -17,9 +17,23 @@
       <input type="date" name="start_date" id="start_date" value="<%= @project.start_date %>">
     </form>
 
+    <div class="form=el">
+      <label for="budget">Project type:</label>
+      <input type="string" name="type" id="type" value="<%= @project.type %>"/>
+    </div>
+
+    <div>
+      <label for="description">Project Description:</label>
+    <textarea rows="4" cols="50" type="text" name="description"><%= @project.description %>
+    </textarea>
+  </div>
+
     <div class="form-el">
       <input type="submit" value="Edit Project"/>
     </div>
 
   </div>
+</form>
+<form action="/projects/<%= @project.id %>" method="GET">
+  <button type="submit" value="view">Cancel</button>
 </form>
